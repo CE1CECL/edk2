@@ -1975,6 +1975,11 @@ EfiBootManagerBoot (
       BootOption->Status = Status;
 
       if (gST->ConOut != NULL) {
+
+	#include <Library/AppleSupportLib.h>
+	InitializeAppleSupport (gImageHandle, gST);
+	BdsBootApple ();
+
         gST->ConOut->ClearScreen (gST->ConOut);
 
         AsciiPrint (

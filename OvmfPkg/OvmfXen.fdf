@@ -302,6 +302,7 @@ INF  OvmfPkg/XenAcpiPlatformDxe/XenAcpiPlatformDxe.inf
 INF  MdeModulePkg/Universal/Acpi/S3SaveStateDxe/S3SaveStateDxe.inf
 INF  MdeModulePkg/Universal/Acpi/BootScriptExecutorDxe/BootScriptExecutorDxe.inf
 INF  MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
+INF  IntelFrameworkModulePkg/Universal/DataHubDxe/DataHubDxe.inf
 
 INF  FatPkg/EnhancedFatDxe/Fat.inf
 INF  MdeModulePkg/Universal/Disk/UdfDxe/UdfDxe.inf
@@ -324,6 +325,20 @@ INF MdeModulePkg/Logo/LogoDxe.inf
   }
 !endif
 !include NetworkPkg/Network.fdf.inc
+
+#
+# FSDriverz
+# 
+!if $(ARCH) == IA32
+!else
+INF  RuleOverride=BINARY USE = X64 FSDriverz/btrfs.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/exfat.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/ext4.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/hfs.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/iso9660.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/ntfs.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/udf.inf
+!endif
 
 #
 # Usb Support
