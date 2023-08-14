@@ -58,25 +58,7 @@ InitializeFirmware ()
 {
   EFI_STATUS          Status;
 
-  UINT32              BackgroundClear = 0x00000000;
-  UINT32              FwFeatures      = 0x80000015;
-  UINT32              FwFeaturesMask  = 0x800003ff;
   CHAR8               BootArgs[]      = "-no_compat_check";
-
-  Status = gRT->SetVariable(L"BackgroundClear",
-                            &gAppleFirmwareVariableGuid,
-                            EFI_VARIABLE_NON_VOLATILE | EFI_VARIABLE_BOOTSERVICE_ACCESS | EFI_VARIABLE_RUNTIME_ACCESS,
-                            sizeof(BackgroundClear), &BackgroundClear);
-
-  Status = gRT->SetVariable(L"FirmwareFeatures",
-                            &gAppleFirmwareVariableGuid,
-                            EFI_VARIABLE_NON_VOLATILE | EFI_VARIABLE_BOOTSERVICE_ACCESS | EFI_VARIABLE_RUNTIME_ACCESS,
-                            sizeof(FwFeatures), &FwFeatures);
-
-  Status = gRT->SetVariable(L"FirmwareFeaturesMask",
-                            &gAppleFirmwareVariableGuid,
-                            EFI_VARIABLE_NON_VOLATILE | EFI_VARIABLE_BOOTSERVICE_ACCESS | EFI_VARIABLE_RUNTIME_ACCESS,
-                            sizeof(FwFeaturesMask), &FwFeaturesMask);
 
   Status = gRT->SetVariable(L"boot-args",
                             &gAppleNVRAMVariableGuid,

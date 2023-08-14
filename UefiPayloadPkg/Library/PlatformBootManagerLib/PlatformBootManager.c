@@ -291,6 +291,9 @@ PlatformBootManagerAfterConsole (
 
   // invoke SMM handler to put BYT eMMC/SD devices into ACPI mode for OS
   IoWrite8(0xb2, 0xcd);
+
+  InitializeAppleSupport (gImageHandle, gST);
+
 }
 
 /**
