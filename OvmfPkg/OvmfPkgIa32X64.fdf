@@ -327,13 +327,43 @@ INF MdeModulePkg/Logo/LogoDxe.inf
 # 
 !if $(ARCH) == IA32
 !else
+INF  RuleOverride=BINARY USE = X64 FSDriverz/affs.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/afs.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/apfs.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/bfs.inf
 INF  RuleOverride=BINARY USE = X64 FSDriverz/btrfs.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/cbfs.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/cpio.inf
 INF  RuleOverride=BINARY USE = X64 FSDriverz/exfat.inf
-INF  RuleOverride=BINARY USE = X64 FSDriverz/ext4.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/ext2.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/f2fs.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/fat.inf.inf
 INF  RuleOverride=BINARY USE = X64 FSDriverz/hfs.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/hfsplus.inf
 INF  RuleOverride=BINARY USE = X64 FSDriverz/iso9660.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/jfs.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/minix2_be.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/minix2.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/minix3_be.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/minix3.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/minix_be.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/minix.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/newc.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/nilfs2.inf
 INF  RuleOverride=BINARY USE = X64 FSDriverz/ntfs.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/odc.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/procfs.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/reiserfs.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/romfs.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/sfs.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/squash4.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/tar.inf
 INF  RuleOverride=BINARY USE = X64 FSDriverz/udf.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/ufs1_be.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/ufs1.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/ufs2.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/xfs.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/zfs.inf
 !endif
 
 #
