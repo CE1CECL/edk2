@@ -259,7 +259,7 @@ INF  RuleOverride=BINARY USE = X64 FSDriverz/cpio.inf
 INF  RuleOverride=BINARY USE = X64 FSDriverz/exfat.inf
 INF  RuleOverride=BINARY USE = X64 FSDriverz/ext2.inf
 INF  RuleOverride=BINARY USE = X64 FSDriverz/f2fs.inf
-INF  RuleOverride=BINARY USE = X64 FSDriverz/fat.inf.inf
+INF  RuleOverride=BINARY USE = X64 FSDriverz/fat.inf
 INF  RuleOverride=BINARY USE = X64 FSDriverz/hfs.inf
 INF  RuleOverride=BINARY USE = X64 FSDriverz/hfsplus.inf
 INF  RuleOverride=BINARY USE = X64 FSDriverz/iso9660.inf
