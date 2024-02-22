@@ -49,7 +49,7 @@ STATIC CONST OVMF_TYPE0  mOvmfDefaultType0 = {
     },
     {      // BIOSCharacteristicsExtensionBytes[2]
       0,   // BiosReserved
-      0x1C // SystemReserved = VirtualMachineSupported |
+      0    // SystemReserved = VirtualMachineSupported |
            //                  UefiSpecificationSupported |
            //                  TargetContentDistributionEnabled
     },
