@@ -58,7 +58,13 @@ InitializeFirmware ()
 {
   EFI_STATUS          Status;
 
-  CHAR8               BootArgs[]      = "-no_compat_check";
+  CHAR8               BootArgs[]      = " serial=1 -no_compat_check kext-dev-mode=1 ";
+  CHAR8               CsrActive       = -1;
+
+  Status = gRT->SetVariable(L"csr-active-config",
+                            &gAppleNVRAMVariableGuid,
+                            EFI_VARIABLE_NON_VOLATILE | EFI_VARIABLE_BOOTSERVICE_ACCESS | EFI_VARIABLE_RUNTIME_ACCESS,
+                            sizeof(CsrActive), &CsrActive);
 
   Status = gRT->SetVariable(L"boot-args",
                             &gAppleNVRAMVariableGuid,
