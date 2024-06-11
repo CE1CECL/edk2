@@ -93,7 +93,7 @@ InitializeDatahub (
   Status = gBS->LocateProtocol(&gEfiDataHubProtocolGuid, NULL, (VOID **)&DataHub);
   ASSERT_EFI_ERROR(Status);
 
-  UINT64 FsbFrequency = 667000000;
+  UINT64 FsbFrequency = 800000000;
   UINT32 DevicePathsSupported = 1;
 
   SetEfiPlatformProperty(DataHub, L"FSBFrequency", gAppleFsbFrequencyPropertyGuid, &FsbFrequency, sizeof(UINT64));
