@@ -14,7 +14,7 @@
 #define TYPE0_STRINGS \
   "CECL\0"     /* Vendor */ \
   "1960\0"                             /* BiosVersion */ \
-  "06/19/1960\0"                        /* BiosReleaseDate */
+  "06/22/2007\0"                        /* BiosReleaseDate */
 //
 // Type definition and contents of the default Type 0 SMBIOS table.
 //
