@@ -60,16 +60,29 @@ InitializeFirmware ()
 
   CHAR8               BootArgs[]      = " serial=1 -no_compat_check kext-dev-mode=1 ";
   CHAR8               CsrActive       = -1;
+  UINTN               DataSize;
 
-  Status = gRT->SetVariable(L"csr-active-config",
-                            &gAppleNVRAMVariableGuid,
-                            EFI_VARIABLE_NON_VOLATILE | EFI_VARIABLE_BOOTSERVICE_ACCESS | EFI_VARIABLE_RUNTIME_ACCESS,
-                            sizeof(CsrActive), &CsrActive);
+  DataSize = 0;
+  Status = gRT->GetVariable(L"boot-args",
+			    &gAppleNVRAMVariableGuid,
+			    NULL, &DataSize, NULL);
+  if (Status != EFI_BUFFER_TOO_SMALL) {
+	  Status = gRT->SetVariable(L"boot-args",
+				    &gAppleNVRAMVariableGuid,
+				    EFI_VARIABLE_NON_VOLATILE | EFI_VARIABLE_BOOTSERVICE_ACCESS | EFI_VARIABLE_RUNTIME_ACCESS,
+				    sizeof(BootArgs), &BootArgs);
+  }
 
-  Status = gRT->SetVariable(L"boot-args",
-                            &gAppleNVRAMVariableGuid,
-                            EFI_VARIABLE_BOOTSERVICE_ACCESS | EFI_VARIABLE_RUNTIME_ACCESS,
-                            sizeof(BootArgs), &BootArgs);
+  DataSize = 0;
+  Status = gRT->GetVariable(L"csr-active-config",
+			    &gAppleNVRAMVariableGuid,
+			    NULL, &DataSize, NULL);
+  if (Status != EFI_BUFFER_TOO_SMALL) {
+	  Status = gRT->SetVariable(L"csr-active-config",
+				    &gAppleNVRAMVariableGuid,
+				    EFI_VARIABLE_NON_VOLATILE | EFI_VARIABLE_BOOTSERVICE_ACCESS | EFI_VARIABLE_RUNTIME_ACCESS,
+				    sizeof(CsrActive), &CsrActive);
+  }
 
   return Status;
 }
