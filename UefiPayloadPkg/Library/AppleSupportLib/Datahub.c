@@ -16,7 +16,6 @@
 
 EFI_GUID gAppleSystemInfoProducerNameGuid = {0x64517CC8, 0x6561, 0x4051, {0xB0, 0x3C, 0x59, 0x64, 0xB6, 0x0F, 0x4C, 0x7A}};
 EFI_GUID gAppleFsbFrequencyPropertyGuid = {0xD1A04D55, 0x75B9, 0x41A3, {0x90, 0x36, 0x8F, 0x4A, 0x26, 0x1C, 0xBB, 0xA2}};
-EFI_GUID gAppleDevicePathsSupportedGuid = {0x5BB91CF7, 0xD816, 0x404B, {0x86, 0x72, 0x68, 0xF2, 0x7F, 0x78, 0x31, 0xDC}};
 
 typedef struct {
   UINT32              DataNameSize;
@@ -93,11 +92,9 @@ InitializeDatahub (
   Status = gBS->LocateProtocol(&gEfiDataHubProtocolGuid, NULL, (VOID **)&DataHub);
   ASSERT_EFI_ERROR(Status);
 
-  UINT64 FsbFrequency = 800000000;
-  UINT32 DevicePathsSupported = 1;
+  UINT64 FsbFrequency = 725000000;
 
   SetEfiPlatformProperty(DataHub, L"FSBFrequency", gAppleFsbFrequencyPropertyGuid, &FsbFrequency, sizeof(UINT64));
-  SetEfiPlatformProperty(DataHub, L"DevicePathsSupported", gAppleDevicePathsSupportedGuid, &DevicePathsSupported, sizeof(UINT32));
   ASSERT_EFI_ERROR(Status);
 
   return Status;
