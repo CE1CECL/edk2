@@ -309,6 +309,8 @@
   VmgExitLib|UefiCpuPkg/Library/VmgExitLibNull/VmgExitLibNull.inf
   ReportStatusCodeLib|MdeModulePkg/Library/DxeReportStatusCodeLib/DxeReportStatusCodeLib.inf
 
+  AppleSupportLib|UefiPayloadPkg/Library/AppleSupportLib/AppleSupportLib.inf
+
 [LibraryClasses.common]
 !if $(BOOTSPLASH_IMAGE)
   SafeIntLib|MdePkg/Library/BaseSafeIntLib/BaseSafeIntLib.inf
@@ -709,6 +711,8 @@
   MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
 !endif
+
+  IntelFrameworkModulePkg/Universal/DataHubDxe/DataHubDxe.inf
 
   #
   # PCI Support
