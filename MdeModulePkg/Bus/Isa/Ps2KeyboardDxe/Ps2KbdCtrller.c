@@ -1731,7 +1731,13 @@ InitKeyboard (
     //
     // wait for BAT completion code
     //
-    KeyboardWaitForValue (ConsoleIn, KEYBOARD_8048_RETURN_8042_BAT_SUCCESS);
+    mWaitForValueTimeOut = KEYBOARD_BAT_TIMEOUT;
+
+    Status = KeyboardWaitForValue (ConsoleIn, KEYBOARD_8048_RETURN_8042_BAT_SUCCESS);
+    if (EFI_ERROR (Status)) {
+      KeyboardError (ConsoleIn, L"Keyboard self test failed!\n\r");
+      goto Done;
+    }
 
     mWaitForValueTimeOut = KEYBOARD_WAITFORVALUE_TIMEOUT;
 

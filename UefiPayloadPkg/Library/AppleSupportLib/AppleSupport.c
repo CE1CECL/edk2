@@ -58,7 +58,7 @@ InitializeFirmware ()
 {
   EFI_STATUS          Status;
 
-  CHAR8               BootArgs[]      = " serial=1 -no_compat_check kext-dev-mode=1 ";
+  CHAR8               BootArgs[]      = " serial=1 -no_compat_check kext-dev-mode=1 cpus=1 ";
   CHAR8               CsrActive       = -1;
   UINTN               DataSize;
 

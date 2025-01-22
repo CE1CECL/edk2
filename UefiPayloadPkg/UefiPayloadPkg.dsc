@@ -42,9 +42,8 @@
   DEFINE CRYPTO_PROTOCOL_SUPPORT      = FALSE
   DEFINE SD_MMC_TIMEOUT               = 1000000
   DEFINE USE_CBMEM_FOR_CONSOLE        = FALSE
-  DEFINE BOOTSPLASH_IMAGE             = TRUE
+  DEFINE BOOTSPLASH_IMAGE             = FALSE
   DEFINE NVME_ENABLE                  = TRUE
-  DEFINE FOLLOW_BGRT_SPEC             = FALSE
 
   #
   # NULL:    NullMemoryTestDxe
@@ -424,7 +423,7 @@
 
 [PcdsFixedAtBuild]
   gEfiMdePkgTokenSpaceGuid.PcdHardwareErrorRecordLevel|1
-  gEfiMdeModulePkgTokenSpaceGuid.PcdMaxVariableSize|0x8000
+  gEfiMdeModulePkgTokenSpaceGuid.PcdMaxVariableSize|0x10000
   gEfiMdeModulePkgTokenSpaceGuid.PcdMaxHardwareErrorVariableSize|0x8000
   gEfiMdeModulePkgTokenSpaceGuid.PcdVariableStoreSize|0x10000
 !if $(VARIABLE_SUPPORT) == "EMU"
@@ -450,8 +449,6 @@
 
   gUefiPayloadPkgTokenSpaceGuid.PcdDispatchModuleAbove4GMemory|$(ABOVE_4G_MEMORY)
   gUefiPayloadPkgTokenSpaceGuid.PcdBootManagerEscape|$(BOOT_MANAGER_ESCAPE)
-
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFollowBGRTSpecification|$(FOLLOW_BGRT_SPEC)
 
   gEfiMdePkgTokenSpaceGuid.PcdMaximumUnicodeStringLength|1800000
 
@@ -652,9 +649,9 @@
 !endif
   MdeModulePkg/Application/UiApp/UiApp.inf {
     <LibraryClasses>
+      NULL|MdeModulePkg/Library/DeviceManagerUiLib/DeviceManagerUiLib.inf
       NULL|MdeModulePkg/Library/BootManagerUiLib/BootManagerUiLib.inf
       NULL|MdeModulePkg/Library/BootMaintenanceManagerUiLib/BootMaintenanceManagerUiLib.inf
-      NULL|MdeModulePkg/Library/DeviceManagerUiLib/DeviceManagerUiLib.inf
   }
   MdeModulePkg/Application/BootManagerMenuApp/BootManagerMenuApp.inf {
     <LibraryClasses>
