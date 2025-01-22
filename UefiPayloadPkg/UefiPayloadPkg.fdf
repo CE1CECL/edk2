@@ -242,7 +242,6 @@ INF MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
 !if $(RAM_DISK_ENABLE) == TRUE
 INF MdeModulePkg/Universal/Disk/RamDiskDxe/RamDiskDxe.inf
 !endif
-INF FatPkg/EnhancedFatDxe/Fat.inf
 
 #
 # FSDriverz
