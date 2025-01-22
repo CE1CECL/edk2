@@ -1527,6 +1527,20 @@ InitializeBmmConfig (
   //
   GetBootOrder (CallbackData);
 
+  //
+  // Initialize data which located in Driver Options Menu
+  //
+  GetDriverOrder (CallbackData);
+
+  //
+  // Initialize data which located in Console Options Menu
+  //
+  GetConsoleOutMode (CallbackData);
+  GetConsoleInCheck (CallbackData);
+  GetConsoleOutCheck (CallbackData);
+  GetConsoleErrCheck (CallbackData);
+  GetTerminalAttribute (CallbackData);
+
   CallbackData->BmmFakeNvData.ForceReconnect = TRUE;
 
   //
