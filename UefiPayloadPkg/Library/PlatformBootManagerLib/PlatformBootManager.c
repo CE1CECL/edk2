@@ -147,6 +147,9 @@ PlatformRegisterFvBootOption (
     EfiBootManagerFreeLoadOption (&NewOption);
     EfiBootManagerFreeLoadOptions (BootOptions, BootOptionCount);
   }
+
+  // invoke SMM handler to put BYT eMMC/SD devices into ACPI mode for OS
+  IoWrite8(0xb2, 0xcd);
 }
 
 /**
@@ -270,27 +273,20 @@ PlatformBootManagerAfterConsole (
   PlatformRegisterFvBootOption (PcdGetPtr (PcdShellFile), L"UEFI Shell", LOAD_OPTION_ACTIVE);
 
   if (FixedPcdGetBool (PcdBootManagerEscape)) {
-    BootLogoUpdateProgress (
-      White,
-      Black,
-      L"Press ESC for Boot Options/Settings",
-      White,
-      0,
-      0
+    Print (
+      L"\n"
+      L"    Esc or Down      to enter Boot Manager Menu.\n"
+      L"    ENTER            to boot directly.\n"
+      L"\n"
       );
   } else {
-    BootLogoUpdateProgress (
-      White,
-      Black,
-      L"Press F2 or Down for Boot Options/Settings",
-      White,
-      0,
-      0
+    Print (
+      L"\n"
+      L"    F2 or Down      to enter Boot Manager Menu.\n"
+      L"    ENTER           to boot directly.\n"
+      L"\n"
       );
   }
-
-  // invoke SMM handler to put BYT eMMC/SD devices into ACPI mode for OS
-  IoWrite8(0xb2, 0xcd);
 
   InitializeAppleSupport (gImageHandle, gST);
 
@@ -309,9 +305,6 @@ PlatformBootManagerWaitCallback (
 {
   if (mUniversalPayloadPlatformBootManagerOverrideInstance != NULL) {
     mUniversalPayloadPlatformBootManagerOverrideInstance->WaitCallback (TimeoutRemain);
-  }
-  if (TimeoutRemain == 0) {
-    BootLogoClearProgress ();
   }
 
   return;

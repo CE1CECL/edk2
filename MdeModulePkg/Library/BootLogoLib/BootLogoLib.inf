@@ -48,8 +48,5 @@
   gEfiUserManagerProtocolGuid                   ## CONSUMES
   gEdkiiPlatformLogoProtocolGuid                ## CONSUMES
 
-[Pcd]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFollowBGRTSpecification ## CONSUMES
-
 [FeaturePcd]
   gEfiMdePkgTokenSpaceGuid.PcdUgaConsumeSupport ## CONSUMES

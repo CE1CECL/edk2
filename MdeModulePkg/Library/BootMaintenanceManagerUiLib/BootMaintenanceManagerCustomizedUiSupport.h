@@ -10,46 +10,72 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 #define __BOOT_MAINTENANCE_MANAGER_UI_LIB_H__
 
 /**
-  Create Add Boot option in the page.
+  Create Time Out Menu in the page.
 
   @param[in]    HiiHandle           The hii handle for the Uiapp driver.
   @param[in]    StartOpCodeHandle   The opcode handle to save the new opcode.
 
 **/
 VOID
-BmmCreateAddBootOptionMenu (
+BmmCreateTimeOutMenu (
   IN EFI_HII_HANDLE  HiiHandle,
   IN VOID            *StartOpCodeHandle
   );
 
 /**
-  Create Delete Boot option in the page
+  Create the dynamic item to allow user to set the "BootNext" vaule.
 
   @param[in]    HiiHandle           The hii handle for the Uiapp driver.
   @param[in]    StartOpCodeHandle   The opcode handle to save the new opcode.
 
 **/
 VOID
-BmmCreateDeleteBootOptionMenu (
+BmmCreateBootNextMenu (
   IN EFI_HII_HANDLE  HiiHandle,
   IN VOID            *StartOpCodeHandle
   );
 
 /**
-  Create Change Boot option menu in the page.
+  Create Boot Option menu in the page.
 
   @param[in]    HiiHandle           The hii handle for the Uiapp driver.
   @param[in]    StartOpCodeHandle   The opcode handle to save the new opcode.
 
 **/
 VOID
-BmmCreateChangeBootOptionMenu (
+BmmCreateBootOptionMenu (
   IN EFI_HII_HANDLE  HiiHandle,
   IN VOID            *StartOpCodeHandle
   );
 
 /**
-  Create Boot From File menu in the page.
+  Create Driver Option menu in the page.
+
+  @param[in]    HiiHandle           The hii handle for the Uiapp driver.
+  @param[in]    StartOpCodeHandle   The opcode handle to save the new opcode.
+
+**/
+VOID
+BmmCreateDriverOptionMenu (
+  IN EFI_HII_HANDLE  HiiHandle,
+  IN VOID            *StartOpCodeHandle
+  );
+
+/**
+  Create Com Option menu in the page.
+
+  @param[in]    HiiHandle           The hii handle for the Uiapp driver.
+  @param[in]    StartOpCodeHandle   The opcode handle to save the new opcode.
+
+**/
+VOID
+BmmCreateComOptionMenu (
+  IN EFI_HII_HANDLE  HiiHandle,
+  IN VOID            *StartOpCodeHandle
+  );
+
+/**
+  Create Com Option menu in the page.
 
   @param[in]    HiiHandle           The hii handle for the Uiapp driver.
   @param[in]    StartOpCodeHandle   The opcode handle to save the new opcode.

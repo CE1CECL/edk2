@@ -25,35 +25,17 @@ UiCustomizeBMMPage (
   )
 {
   //
-  // Create "Change Boot Order" menu.
+  // Create "Boot Option" menu.
   //
-  BmmCreateChangeBootOptionMenu(HiiHandle, StartOpCodeHandle);
-
+  BmmCreateBootOptionMenu (HiiHandle, StartOpCodeHandle);
   //
-  // Create empty line.
+  // Create "Driver Option" menu.
   //
-  BmmCreateEmptyLine (HiiHandle, StartOpCodeHandle);
-
+  BmmCreateDriverOptionMenu (HiiHandle, StartOpCodeHandle);
   //
-  // Create "Add Boot Option" menu.
+  // Create "Com Option" menu.
   //
-  BmmCreateAddBootOptionMenu(HiiHandle, StartOpCodeHandle);
-
-  //
-  // Create empty line.
-  //
-  BmmCreateEmptyLine (HiiHandle, StartOpCodeHandle);
-
-  //
-  // Create "Delete Boot Option" menu.
-  //
-   BmmCreateDeleteBootOptionMenu(HiiHandle, StartOpCodeHandle);
-
-  //
-  // Create empty line.
-  //
-  BmmCreateEmptyLine (HiiHandle, StartOpCodeHandle);
-
+  BmmCreateComOptionMenu (HiiHandle, StartOpCodeHandle);
   //
   // Create "Boot From File" menu.
   //
@@ -68,6 +50,15 @@ UiCustomizeBMMPage (
   // Create empty line.
   //
   BmmCreateEmptyLine (HiiHandle, StartOpCodeHandle);
+
+  //
+  // Create "Boot Next" menu.
+  //
+  BmmCreateBootNextMenu (HiiHandle, StartOpCodeHandle);
+  //
+  // Create "Time Out" menu.
+  //
+  BmmCreateTimeOutMenu (HiiHandle, StartOpCodeHandle);
 }
 
 /**
