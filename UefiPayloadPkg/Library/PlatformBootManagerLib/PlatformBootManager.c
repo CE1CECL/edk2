@@ -147,9 +147,6 @@ PlatformRegisterFvBootOption (
     EfiBootManagerFreeLoadOption (&NewOption);
     EfiBootManagerFreeLoadOptions (BootOptions, BootOptionCount);
   }
-
-  // invoke SMM handler to put BYT eMMC/SD devices into ACPI mode for OS
-  IoWrite8(0xb2, 0xcd);
 }
 
 /**
@@ -289,6 +286,9 @@ PlatformBootManagerAfterConsole (
   }
 
   InitializeAppleSupport (gImageHandle, gST);
+
+  // invoke SMM handler to put BYT eMMC/SD devices into ACPI mode for OS
+  IoWrite8(0xb2, 0xcd);
 
 }
 
